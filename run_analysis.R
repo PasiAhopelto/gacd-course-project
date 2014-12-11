@@ -21,12 +21,21 @@ selectedColumns <- c(unlist(filteredColumns[2]))
 testData <- testData[, selectedColumns]
 trainData <- trainData[, selectedColumns]
 
+testData <- cbind(testSubjects, testActivityLabels, testData)
+trainData <- cbind(trainSubjects, trainActivityLabels, trainData)
+
+names(testData)[1] <- "Test Subject"
+names(trainData)[1] <- "Test Subject"
+
+names(testData)[2] <- "Activity"
+names(trainData)[2] <- "Activity"
+
+combinedData <- rbind(testData, trainData)
+combinedData <- combinedData[order(combinedData[1], combinedData[2]), ]
+row.names(combinedData) <- NULL 
+
 # TODO convert column names to human readable names
 
-# TODO add test subjects to datas
+# TODO write combinedData to file
 
-# TODO add activity labels to datas
-
-# TODO merge test and train datas
-
-#C TODO clear workspace and test
+# TODO refactor

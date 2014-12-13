@@ -34,8 +34,25 @@ combinedData <- rbind(testData, trainData)
 combinedData <- combinedData[order(combinedData[1], combinedData[2]), ]
 row.names(combinedData) <- NULL 
 
-# TODO convert column names to human readable names
+colnames(combinedData) <- lapply(colnames(combinedData), function(x) {
+  x <- sub('(.+)-(.+)-(.+)', '\\2 \\1 on phone \\3 axis', x)
+  x <- sub('^(.+)-(.+)$', '\\2 \\1', x)
+  x <- sub('mean()', 'Mean ', x, fixed = TRUE)
+  x <- sub('std()', 'Standard deviation of ', x, fixed = TRUE)
+  x <- sub(' t', 'time domain ', x)
+  x <- sub(' f', 'frequency domain ', x)
+  x <- gsub('Body', 'body ', x)
+  x <- gsub('Gravity', 'gravity ', x)
+  x <- sub('Acc', 'acceleration', x)
+  x <- sub('Gyro', 'gyroscope', x)
+  x <- sub('Jerk', ' jerk', x)
+  x <- sub('Mag', ' magnitude', x)
+  x <- gsub('body body ', 'body ', x)
+  x
+})
 
-# TODO write combinedData to file
+# TODO calculate average by subject+activity from combinedData
+
+# TODO write tidyData to file
 
 # TODO refactor

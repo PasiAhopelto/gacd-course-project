@@ -10,17 +10,16 @@ Steps to create the tidy data set:
 	git clone https://github.com/PasiAhopelto/gacd-course-project
 	```
 
-2. Download the data set from https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
-   and unzip it into the directory into cloned git repository's directory:
+2. Download data set (https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip) and unzip it into the cloned git repository:
 	```
 	cd gacd-course-project
 	wget https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
 	unzip "getdata_projectfiles_UCI HAR Dataset.zip"
 	```
 
-3. Run conversion script:
+3. Create tidy data with:
 	```
 	R --no-save < run_analysis.R
 	```
 
-The tidy data set is written to tidydata.txt. Please see CodeBook.md for file's description.
+The script writes the tidy data into tidydata.txt. Please see CodeBook.md for its description.

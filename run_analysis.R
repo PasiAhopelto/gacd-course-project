@@ -31,7 +31,6 @@ names(testData)[2] <- "Activity"
 names(trainData)[2] <- "Activity"
 
 combinedData <- rbind(testData, trainData)
-combinedData <- combinedData[order(combinedData[1], combinedData[2]), ]
 row.names(combinedData) <- NULL 
 
 colnames(combinedData) <- lapply(colnames(combinedData), function(x) {
@@ -51,8 +50,9 @@ colnames(combinedData) <- lapply(colnames(combinedData), function(x) {
   x
 })
 
-# TODO calculate average by subject+activity from combinedData
+tidyData <- aggregate(combinedData[-2], by=combinedData[c('Test Subject', 'Activity')], FUN=mean)
+tidyData <- subset(tidyData, select = -c(3))
 
-# TODO write tidyData to file
+# TODO write to file
 
 # TODO refactor

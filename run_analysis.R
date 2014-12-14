@@ -53,6 +53,6 @@ colnames(combinedData) <- lapply(colnames(combinedData), function(x) {
 tidyData <- aggregate(combinedData[-2], by=combinedData[c('Test Subject', 'Activity')], FUN=mean)
 tidyData <- subset(tidyData, select = -c(3))
 
-# TODO write to file
+write.csv(tidyData, file = "tidydata.csv")
 
 # TODO refactor

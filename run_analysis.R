@@ -33,7 +33,7 @@ colnames(combinedData) <- lapply(colnames(combinedData), function(x) {
   x <- gsub('Body', 'body ', x)
   x <- gsub('Gravity', 'gravity ', x)
   x <- sub('Acc', 'acceleration', x)
-  x <- sub('Gyro', 'gyroscope', x)
+  x <- sub('Gyro', 'angular velocity', x)
   x <- sub('Jerk', ' jerk', x)
   x <- sub('Mag', ' magnitude', x)
   x <- gsub('body body ', 'body ', x)

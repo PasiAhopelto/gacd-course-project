@@ -3,7 +3,7 @@ gacd-course-project
 
 This is a Getting and cleaning data course project which creates a tidy data set from provided accelerometer data set.
 
-Steps to create the tidy data set:
+## Creating tidy data set
 
 1. Clone gacd-course-project git repository:
 	```
@@ -23,3 +23,5 @@ Steps to create the tidy data set:
 	```
 
 The script writes the tidy data into tidydata.txt. Please see CodeBook.md for its description.
+
+## TODO describe what the script does

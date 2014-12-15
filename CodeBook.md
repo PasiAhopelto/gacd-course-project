@@ -26,8 +26,10 @@ Combination of the two is unique within data set.
 
 Measurements are averages of original measurements by test subject and activity. Measurements are named "*type* *domain* *measurement* *axis*", where
 * *type* is either **Mean** or **Standard deviation**, this refers to original measurement
-* *domain* is either **time domain** or **gravity domain**
+* *domain* is either **time domain** or **frequency domain** **TODO explain**
 * *measurement* describes what is being measured
-* *axis* is either **X**, **Y** or **Z axis**, or **jerk magnitude**.
+** TODO (see README for body acceleration and angular velocity)
+** TODO (see README for units)
+* *axis* is either **X**, **Y** or **Z axis**, or empty in case of no axis.
 
 The type, domain, axis and jerk magnitude as as described in the original dataset while measurement names are based on the original data sets' description.

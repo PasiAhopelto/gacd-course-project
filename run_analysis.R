@@ -1,34 +1,24 @@
+readDataSet <- function(dataset, activityLabels, featureTitles, selectedColumns) {
+  subjects <- read.delim(file = paste("UCI HAR Dataset/", dataset, "/subject_", dataset, ".txt", sep = ''), header = FALSE)
+  activities <- read.delim(file = paste("UCI HAR Dataset/", dataset, "/y_", dataset, ".txt", sep = ''), header = FALSE)
+  activities <- apply(activities, 1, function(x) { activityLabels[x, 2] })
+  data <- read.delim(file = paste("UCI HAR Dataset/", dataset, "/X_", dataset, ".txt", sep = ''), sep='', header = FALSE)
+  colnames(data) <- featureTitles[, 2]
+  data <- data[, selectedColumns]
+  data <- cbind(subjects, activities, data)
+  names(data)[1] <- "Test Subject"
+  names(data)[2] <- "Activity"
+  data
+}
+
 featureTitles <- read.delim(file = "UCI HAR Dataset/features.txt", sep = ' ', header = FALSE)
 activityLabels <- read.delim(file = "UCI HAR Dataset/activity_labels.txt", sep = ' ', header = FALSE)
 
-testSubjects <- read.delim(file = "UCI HAR Dataset/test/subject_test.txt", header = FALSE)
-trainSubjects <- read.delim(file = "UCI HAR Dataset/train/subject_train.txt", header = FALSE)
-
-testActivityLabels <- read.delim(file = "UCI HAR Dataset/test/y_test.txt", header = FALSE)
-trainActivityLabels <- read.delim(file = "UCI HAR Dataset/train/y_train.txt", header = FALSE)
-
-testActivityLabels <- apply(testActivityLabels, 1, function(x) { activityLabels[x, 2] })
-trainActivityLabels <- apply(trainActivityLabels, 1, function(x) { activityLabels[x, 2] })
-
-testData <- read.delim(file = "UCI HAR Dataset/test/X_test.txt", sep='', header = FALSE)
-trainData <- read.delim(file = "UCI HAR Dataset/train/X_train.txt", sep='', header = FALSE, )
-
-colnames(testData) <- featureTitles[, 2]
-colnames(trainData) <- featureTitles[, 2]
-
 filteredColumns <- sapply(featureTitles, function(x) grep("mean\\(\\)|std\\(\\)", x))
 selectedColumns <- c(unlist(filteredColumns[2])) 
-testData <- testData[, selectedColumns]
-trainData <- trainData[, selectedColumns]
 
-testData <- cbind(testSubjects, testActivityLabels, testData)
-trainData <- cbind(trainSubjects, trainActivityLabels, trainData)
-
-names(testData)[1] <- "Test Subject"
-names(trainData)[1] <- "Test Subject"
-
-names(testData)[2] <- "Activity"
-names(trainData)[2] <- "Activity"
+testData <- readDataSet('test', activityLabels, featureTitles, selectedColumns)
+trainData <- readDataSet('train', activityLabels, featureTitles, selectedColumns)
 
 combinedData <- rbind(testData, trainData)
 row.names(combinedData) <- NULL 
@@ -54,5 +44,3 @@ tidyData <- aggregate(combinedData[-2], by=combinedData[c('Test Subject', 'Activ
 tidyData <- subset(tidyData, select = -c(3))
 
 write.table(tidyData, file = "tidydata.txt", row.names = FALSE)
-
-# TODO refactor

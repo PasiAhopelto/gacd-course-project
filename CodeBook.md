@@ -18,4 +18,5 @@ Measurements are averages of original measurements by test subject and activity.
 * domain* is either **time domain** or **gravity domain**
 * measurement* describes what is being measured
 * *axis|jerk magnitude* is either **X**, **Y** or **Z axis**, or **jerk magnitude**.
+
 The type, domain, axis and jerk magnitude as as described in the original dataset while measurement tries to be self explanatory.

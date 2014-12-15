@@ -24,4 +24,8 @@ This is a Getting and cleaning data course project which creates a tidy data set
 
 The script writes the tidy data into tidydata.txt. Please see CodeBook.md for its description.
 
-## TODO describe what the script does
+## What the script does?
+
+**TODO**
+
+**UPLOAD ALSO NEW tidydata.txt**

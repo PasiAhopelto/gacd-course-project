@@ -27,9 +27,10 @@ Combination of the two is unique within data set.
 Measurements are averages of original measurements by test subject and activity. Measurements are named "*type* *domain* *measurement* *axis*", where
 * *type* is either **Mean** or **Standard deviation**, this refers to original measurement
 * *domain* is either **time domain** or **frequency domain** **TODO explain**
-* *measurement* describes what is being measured
-** TODO (see README for body acceleration and angular velocity)
-** TODO (see README for units)
-* *axis* is either **X**, **Y** or **Z axis**, or empty in case of no axis.
+* *measurement* describes how test subject moves during activity, more specifically:
+** acceleration tells test subject's acceleration during an activity in units of standard gravity (g) relative to given axis
+** angular velocity tells speed at which test subject rotates around given axis in radians/second
+** additional information (eg jerk) tells more about movement's type.
+* *axis* is either **X**, **Y** or **Z axis**, or empty in case of no axis. Note that phone is firmly attached to test subjects chest, so phone axis is same as test subjects axis.
 
 The type, domain, axis and jerk magnitude as as described in the original dataset while measurement names are based on the original data sets' description.

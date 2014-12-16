@@ -26,7 +26,7 @@ Combination of the two is unique within data set.
 
 Measurements are averages of original data set's measurements by test subject and activity. Measurements are named "*type* *domain* *measurement* *axis*", where
 * *type* is either **Mean** or **Standard deviation**, this refers to processing applied already in the original data set's measurement
-* *domain* is either **time domain** or **frequency domain**. Time domain signals were captured at constant rate of 50 Hz. Fast fourier transformation was applied to some of the signals, which produced the frequence domain signals.
+* *domain* is either **time domain** or **frequency domain**. Time domain signals were captured at constant rate of 50 Hz. Fast fourier transformation was applied to some of the signals, which produced the frequency domain signals.
 * *measurement* describes how test subject moves during activity, more specifically:
   * **acceleration** (without "body") is acceleration signal from smartphone in units of standard gravity (g)
   * **body acceleration** is calculated by subtracting gravity from **acceleration** in units of g

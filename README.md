@@ -31,10 +31,10 @@ The script
   * subjects come from *set*/subject_*set*.txt 
   * activities (integers) come from *set*/y_*set*.txt
   * variables are read from *set*/X_*set*.txt
-  * selects variables which have 'mean()' or 'std()' in their name and drops others
-* labels data set:
+  * selects variables which have 'mean()' or 'std()' in their name and drops others.
+* labels data sets:
   * activity labels are read from activity_labels.txt, these replace values read from *set*/y_*set*.txt
-  * measurements are 'expanded' to be more understandable, for example 't' in beginning of measurement is translated to 'time domain'
+  * measurements are 'expanded' to be more understandable, for example 't' in beginning of measurement is translated to 'time domain'.
 * merges two data sets ('test' and 'train') to form one data set
 * aggregates the combined data set by test subject and activity with average function to tidy data set
 * writes the tidy data set to file 'tidydata.txt'.

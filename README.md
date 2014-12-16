@@ -1,7 +1,7 @@
 gacd-course-project
 ===================
 
-This is a Getting and cleaning data course project which creates a tidy data set from provided accelerometer data set.
+This is a Getting and Cleaning Data course project which creates a tidy data set from test subjects' acceleration and angular velocity measurements.
 
 ## Creating tidy data set
 
@@ -27,13 +27,13 @@ The script writes the tidy data into tidydata.txt. Please see CodeBook.md for de
 ## What the script does?
 
 The script
-* reads test and train data sets:
-  * subjects come from *set*/subject_*set*.txt 
-  * activities (integers) come from *set*/y_*set*.txt
-  * variables are read from *set*/X_*set*.txt
+* reads test and train data sets (*set* is either 'test' or 'train'):
+  * subjects come from UCI HAR Dataset/*set*/subject_*set*.txt
+  * activities (integers) come from UCI HAR Data/*set*/y_*set*.txt
+  * variables are read from UCI HAR Data/*set*/X_*set*.txt
   * selects variables which have 'mean()' or 'std()' in their name and drops others.
 * labels data sets:
-  * activity labels are read from activity_labels.txt, these replace values read from *set*/y_*set*.txt
+  * activity labels are read from UCI HAR Data/activity_labels.txt, these replace values read from UCI HAR Data/*set*/y_*set*.txt
   * measurements are 'expanded' to be more understandable, for example 't' in beginning of measurement is translated to 'time domain'.
 * merges two data sets ('test' and 'train') to form one data set
 * aggregates the combined data set by test subject and activity with average function to tidy data set
